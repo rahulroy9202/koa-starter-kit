@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: API Docs
+  version: "1.0.0"
+  description: |
+    ### Steps To set JWT
+    - click Authorize Button and paste token
+servers:
+- url: http://127.0.0.1/api
+  variables: {}
+paths:
+  /user:
+    post:
+      tags:
+      - login
+      summary: create new user
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+        required: true
+      responses:
+        200:
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    UnauthorizedError:
+      description: 401- JWT missing or invalid.
+    ForbiddenError:
+      description: 403- User doesn't have sufficient premissions.
+    NotFoundError:
+      description: 404- Not Found.
+    UnprocessableEntityError:
+      description: 422- Unprocessable Entity.
+  schemas:
+    User:
+      title: User Model
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        is_email_verified:
+          type: boolean
+security:
+- {}
