@@ -15,10 +15,10 @@
   "author": "Rahul Roy <rahulroy9202@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^3.0.2",
+    "cross-env": "^5.1.4",
     "debug": "^3.1.0",
     "dotenv": "^5.0.1",
-    "cross-env": "^5.1.4",
     "http-shutdown": "^1.2.0",
     "kcors": "^2.2.1",
     "koa": "^2.5.0",
@@ -34,6 +34,7 @@
     "uuid": "^3.2.1"
   },
   "devDependencies": {
+    "faker": "^4.1.0",
     "nodemon": "^1.17.2"
   }
 }
